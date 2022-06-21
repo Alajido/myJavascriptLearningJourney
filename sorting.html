@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting in js</title>
+    <link rel="stylesheet" href="/css/sort.css">
+</head>
+<body>
+    <div class="container" style="border: 1px solid blue; width: 80%; margin-left: auto; margin-right: auto;">
+        <h1 style="text-align: center; border-bottom: 1px solid red; width: 50%; margin-right: auto; margin-left: auto;">SORTING METHODS IN JAVASCRIPT</h1>
+
+
+        <!-- alphabetical sorting -->
+        <div class="alphabetical-sorting">
+            <h2 id="materials"></h2>
+            <button onclick="sortItems()" id="sort-btn">Click To Sort</button>
+        </div>
+
+        <!-- compare function -->
+        <div class="compare-function">
+            <h2>Accending Sorting</h2>
+            <h2 id="scores"></h2>
+            <button onclick="myExamScores()" id="sort-btn">Numerical Sortings</button>
+        </div>
+
+        <div class="compare-function">
+            <h2>Desending Sorting</h2>
+            <h2 id="scores2"></h2>
+            <button onclick="myTestScores()" id="sort-btn">Numerical Sortings</button>
+        </div>
+
+        <div class="compare-function">
+            <h2>Random Sorting</h2>
+            <h2 id="numbers"></h2>
+            <button onclick="randomSorting()" id="sort-btn">Numerical Sortings</button>
+        </div>
+
+        <div class="compare-function">
+            <h2>Getting The Higher And The Lowest Value Inside Array</h2>
+            <h2 id="values"></h2>
+            <h2 id="higherValue"></h2>
+            <!-- <button onclick="getHigherValue()" id="sort-btn">Click To Get The Higher Score</button> -->
+        </div>
+
+        <div class="compare-function">
+            <h2>Getting The Higher And The Lowest Value Inside Array</h2>
+            <h2 id="scoresvalue"></h2>
+            <h2 id="lowestValue"></h2>
+            <!-- <button onclick="getHigherValue()" id="sort-btn">Click To Get The Higher Score</button> -->
+        </div>
+
+        <!-- <div class="compare-function">
+            <h2>Getting The Higher And The Highest Value Inside Array</h2>
+            <h2 id="homeMade"></h2>
+            <button onclick="getHigherValue()" id="sort-btn">Click To Get The Higher Score</button> 
+        </div> -->
+
+        <div style="border: 1px solid black;">
+            <h2>Home Made</h2>
+            <h1 id="demo"></h1>
+            <h1 id="demo2"></h1>
+        </div>
+
+        <h1 id="idName"></h1>
+        <button onclick="sortCars()">tryit</button>
+
+        <h1 id="secondName"></h1>
+        <button onclick="sortSchools()">tryit</button>
+    </div>
+
+    <script src="/js/sorting.js"></script>
+</body>
+</html>
