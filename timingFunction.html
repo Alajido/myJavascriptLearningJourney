@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timing Event</title>
+</head>
+<body>
+    <h1 id="demo"></h1>
+    <h1 id="demo1"></h1>
+
+    <button type="button" id="btn" onclick="stopInterval()">click</button>
+    
+    <script>
+
+      // function greet(){
+        //    alert('hello world')
+       //}
+       //const myFunction = setTimeout(greet, 3000)
+
+       //function stopTime(){
+        //clearInterval(myFunction)
+       //} 
+
+       setTimeInterval = setInterval( () => {
+        document.getElementById('demo').innerHTML = 'hello';
+       }, 3000)
+
+       function stopInterval(){
+        clearInterval(setTimeInterval)
+       }
+    </script>
+</body>
+</html>

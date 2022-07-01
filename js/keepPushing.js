@@ -37,3 +37,7 @@ function myFunction(arr){
     }
     return max
 }
+
+
+const userName = 'jude';
+

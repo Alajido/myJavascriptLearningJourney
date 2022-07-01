@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header class="text-center text-2xl py-4 font-bold">
+            <h1> Unit Converter</h1>
+        </header>
+        <div class="type_card flex flex-col gap-y-8 items-center">
+            <!-- FIRST PART -->
+            <div class="first-part">
+                <label for="convert-values">What do you want to Convert</label>
+                <select class="border border-gray-300 rounded-lg w-36 py-1 px-2" name="convert-values" id="convert-values">
+                    <option class="selected-values" class="'do-not-select" value=""></option>
+                </select>
+            </div>
+            <!-- FIRST PART -->
+            
+            <!-- SECOND PART -->
+            <div class="second-part flex w-full max-w-2xl justify-center gap-x-3">
+                <select class="border border-gray-300 rounded-lg w-36" name="value-to-convert" id="from"></select>
+                <div class="flex flex-col">
+                    <span class="text-red-600"><i class="fa fa-arrow-left"></i></span>
+                    <span class="text-green-500"><i class="fa fa-arrow-right"></i></span>
+                </div>
+                <select class="border border-gray-300 rounded-lg w-36 py-1 px-2" name="value-to-convert" id="to"></select>
+            </div>
+            <!-- SECOND PART -->
+            
+            <!-- THIRD PART -->
+            <div class="third-part flex w-full max-w-2xl justify-center gap-x-3">
+                <input class="border border-gray-300 rounded-lg w-36 py-1 px-2" type="number" value="">
+                <div class="flex flex-col">
+                    <span class="text-red-600"><i class="fa fa-arrow-left"></i></span>
+                    <span class="text-green-500"><i class="fa fa-arrow-right"></i></span>
+                </div>
+                <input class="border border-gray-300 rounded-lg w-36 py-1 px-2" readonly>
+            </div>
+            <!-- THIRD PART -->
+
+            <!-- BUTTON PART -->
+            <div class="button-part flex w-full max-w-2xl justify-center gap-x-3">
+                <button type="button" class="convert-btn border border-gray-300 rounded-lg w-36 bg-green-500 text-gray-50 py-2 font-bold">Convert</button>
+                <button type="button" class="reset-btn border border-gray-300 rounded-lg w-36 bg-red-500 text-gray-50 py-2 font-bold">Reset</button>
+            </div>
+            <!-- BUTTON PART -->
+        </div>
+        
+    </div>
+    <script>
+        const values =  {
+            Currency: {
+                naira: "NGN",
+                dollar: "USD",
+                british_pounds: "GBP"
+            },
+            Weight: {
+                kilograms: "KG",
+                pounds: "LBS",
+                ounce: "OUNCE"
+            },
+            Distance: {
+                kilometer: "KM",
+                miles: "MILES",
+                meters: "M"
+            }
+        }
+        function convert_to_dollar(amount, currency) {
+            if (currency === naira){
+                amount = currency/600
+                return amount
+                console.log('hi')
+            } else {
+                dollar = amount/0.7
+                return dollar
+            }
+        }
+
+        // convert to naira function
+        function convert_to_naira(amount){
+            return amount * 600
+        } 
+
+        // convert to pound function
+        function convert_to_pound(amount){
+            return amount * 0.7
+        }
+
+
+        function loadValues (arg) {
+            const convertValues = document.querySelector('#convert-values');
+            if (arg === 'windowLoad') {
+                for (const key in values) {
+                    convertValues.innerHTML += `<option class="selected-values" value="${key}">${key}</option>`;
+                }
+            } if (true) {
+                console.log('Hello')
+            }
+        }
+
+        window.addEventListener('load', () => {
+            const convertValues = document.querySelector('#convert-values');
+            loadValues('windowLoad');
+
+            convertValues.addEventListener('change', () => {
+                const secondPart = document.querySelector('.second-part');
+                const secondPartSelect = secondPart.querySelectorAll('select');
+                const convertValuesValue = convertValues.value;
+                secondPartSelect.forEach((select) => {
+                    select.innerHTML = ''
+                })
+                secondPartSelect.forEach((select) => {
+                    for (const value in values[convertValuesValue]) {
+                        select.innerHTML += `<option class="selected-values" value="${value}">${value}</option>`;
+                    }
+                })
+            })
+
+            const btnPart = document.querySelector('.button-part');
+            const btns = btnPart.querySelectorAll('button');
+            const convertingValue = document.querySelector("#convert-values");
+            btns.forEach((btn) => {
+                btn.addEventListener('click', (e) => {
+                    if (e.currentTarget.classList.contains('convert-btn')) {
+                        const convertingValue = document.querySelector("#convert-values").value;
+                        const from = document.querySelector("#from").value;
+                        const to = document.querySelector("#to").value;
+                        const result = convert_to_dollar(23, naira)
+
+                    } else if (e.currentTarget.classList.contains('reset-btn')) {
+                        //console.log('Hi')
+
+                        const selecting = document.getElementsByTagName('select');
+                        for (i = 0; i < selecting.length; i++){
+                            selecting[i].value = ''
+                        }
+
+                        const selectAll = document.getElementsByTagName('input');
+                        for (i = 0; i < selectAll.length; i++){
+                            selectAll[i].value = ''
+                        }
+                    }
+                })
+            })
+            
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
